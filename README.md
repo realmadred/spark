@@ -2,6 +2,10 @@
 spark
 spark val topWordCount = hamlet.flatMap(str=>str.split(“ “)). filter(!_.isEmpty).map(word=>(word,1)).reduceByKey(_+_).map{case (word, count) => (count, word)}.sortByKey(false)
 
+#sbt 打包
+sbt clean
+sbt package
+
 #2
 注意编译的scala版本要和spark上的jar版本一样
 java.lang.ClassNotFoundException: scala.runtime.java8.JFunction2$mcIII$sp
